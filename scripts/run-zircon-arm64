@@ -7,5 +7,10 @@
 # https://opensource.org/licenses/MIT
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+LOCAL_QEMU_DIR="$DIR/../prebuilt/qemu/linux-amd64/bin"
 
-exec $DIR/run-zircon -a arm64 -x build-arm64/qemu-bootdata.bin "$@"
+if [[ -d "$LOCAL_QEMU_DIR" ]]; then
+  exec "$DIR/run-zircon" -a arm64 -q "$LOCAL_QEMU_DIR" -x build-arm64/qemu-bootdata.bin "$@"
+else
+  exec "$DIR/run-zircon" -a arm64 -x build-arm64/qemu-bootdata.bin "$@"
+fi

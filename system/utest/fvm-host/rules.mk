@@ -47,7 +47,7 @@ MODULE_HOST_LIBS := \
     system/ulib/minfs.hostlib \
     system/ulib/fbl.hostlib \
     system/ulib/digest.hostlib \
-    system/uapp/blobfs.hostlib \
+    system/ulib/blobfs.hostlib \
 
 MODULE_DEFINES += DISABLE_THREAD_ANNOTATIONS
 

@@ -36,7 +36,7 @@ MODULE_COMPILEFLAGS := \
 MODULE_HOST_LIBS := \
     third_party/ulib/uboringssl.hostlib \
     third_party/ulib/lz4.hostlib \
-    system/uapp/blobfs.hostlib \
+    system/ulib/blobfs.hostlib \
     system/ulib/fvm.hostlib \
     system/ulib/fbl.hostlib \
     system/ulib/digest.hostlib \

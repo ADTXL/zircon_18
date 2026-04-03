@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # Copyright 2018 The Fuchsia Authors
 #
 # Use of this source code is governed by a MIT-style
@@ -43,14 +43,14 @@ def main():
 
     # write our Linux compatible header
     out.write(pack('I', 0x91005a4d))    # mrs	x19, mpidr_el1 ('MZ' magic)
-    out.write(pack('I', 0x14000000 + HEADER_SIZE / 4 - 1))    # branch to end of header
+    out.write(pack('I', 0x14000000 + HEADER_SIZE // 4 - 1))    # branch to end of header
     out.write(pack('Q', load_offset))
     out.write(pack('Q', kernel_size))
     out.write(pack('Q', 0))
     out.write(pack('Q', 0))
     out.write(pack('Q', 0))
     out.write(pack('Q', 0))
-    out.write(pack('3s', 'ARM'))
+    out.write(pack('3s', b'ARM'))
     out.write(pack('B', 0x64))
 
     pad_file(out, HEADER_SIZE);
